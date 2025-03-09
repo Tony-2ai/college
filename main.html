@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Colleges in Kerala</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e0f7f7;
+            color: #004d40;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #00796b;
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .search-filter-container {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .search-filter-container input, .search-filter-container select {
+            padding: 12px;
+            border: 2px solid #00796b;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+        }
+        .search-filter-container input:focus, .search-filter-container select:focus {
+            border-color: #004d40;
+            box-shadow: 0 0 8px rgba(0, 121, 107, 0.5);
+        }
+        .college-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .college-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 260px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .college-card:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+        .college-card img {
+            width: 58%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 3px solid #00796b;
+        }
+        .college-card h2 {
+            margin: 15px;
+            font-size: 20px;
+            color: #00796b;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Engineering Colleges in Kerala</h1>
+    </header>
+    <div class="search-filter-container">
+        <input type="text" id="searchBox" onkeyup="searchColleges()" placeholder="🔍 Search colleges...">
+        <select id="filter" onchange="filterColleges()">
+            <option value="all">All</option>
+            <option value="top">🏆 Top Rated</option>
+            <option value="affordable">💰 Affordable</option>
+        </select>
+    </div>
+    <main>
+        <div class="college-container" id="collegeList">
+            <div class="college-card" onclick="openCollegeDetails('college_details.html?college=college1')" data-category="top">
+                <img src="6.jpg" alt="College 1">
+                <h2>Viswajyothi College of Engineering and Technology Vazhakulam</h2>
+            </div>
+            <div class="college-card" onclick="openCollegeDetails('college_details.html?college=college2')" data-category="affordable">
+                <img src="college2.jpg" alt="College 2">
+                <h2>College Name 2</h2>
+            </div>
+            <!-- Add more college cards here -->
+        </div>
+    </main>
+    <script>
+        function openCollegeDetails(page) {
+            window.location.href = page;
+        }
+
+        function searchColleges() {
+            let input = document.getElementById('searchBox').value.toLowerCase();
+            let colleges = document.getElementsByClassName('college-card');
+            
+            for (let i = 0; i < colleges.length; i++) {
+                let name = colleges[i].getElementsByTagName('h2')[0].innerText.toLowerCase();
+                if (name.includes(input)) {
+                    colleges[i].style.display = "flex";
+                } else {
+                    colleges[i].style.display = "none";
+                }
+            }
+        }
+
+        function filterColleges() {
+            let filter = document.getElementById('filter').value;
+            let colleges = document.getElementsByClassName('college-card');
+            
+            for (let i = 0; i < colleges.length; i++) {
+                let category = colleges[i].getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    colleges[i].style.display = "flex";
+                } else {
+                    colleges[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
