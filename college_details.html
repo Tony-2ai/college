@@ -3,489 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viswajyothi College of Engineering and Technology</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>College Details</title>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
-        header {
-            background-color: #00796b;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background-color: #f4f4f4;
         }
         .container {
             width: 90%;
+            max-width: 1200px;
             margin: auto;
             padding: 20px;
-        }
-        .highlight-card {
             background: white;
-            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
         }
-        .tab-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-            position: sticky;
-            top: 0;
-            background: white;
-            padding: 10px 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .tab {
-            padding: 12px 20px;
-            cursor: pointer;
-            background: #00796b;
-            color: white;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .tab:hover, .tab.active {
-            background: #004d40;
-        }
-        .tab-content {
-            display: none;
-            padding: 20px;
-            background: white;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .image-gallery {
+        .tabs {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-        .image-gallery img {
-            width: 200px;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .image-gallery img:hover {
-            transform: scale(1.1);
-        }
-        header {
-            background-color: #00796b;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .container {
-            width: 90%;
-            margin: auto;
-            padding: 20px;
-        }
-        .highlight-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
-        }
-        .tab-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-            position: sticky;
-            top: 0;
-            background: white;
-            padding: 10px 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .tab {
-            padding: 12px 20px;
-            cursor: pointer;
-            background: #00796b;
-            color: white;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .tab:hover, .tab.active {
-            background: #004d40;
-        }
-        .tab-content {
-            display: none;
-            padding: 20px;
-            background: white;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .image-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-        .image-gallery img {
-            width: 200px;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .image-gallery img:hover {
-            transform: scale(1.1);
-        }
-        .facility-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .facility-gallery img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .facility-gallery img:hover {
-            transform: scale(1.1);
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal img {
-            max-width: 80%;
-            max-height: 80%;
-            border-radius: 10px;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #00796b;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .container {
-            width: 90%;
-            margin: auto;
-            padding: 20px;
-        }
-        .highlight-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
-        }
-        .tab-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-            position: sticky;
-            top: 0;
-            background: white;
-            padding: 10px 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .tab {
-            padding: 12px 20px;
-            cursor: pointer;
-            background: #00796b;
-            color: white;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .tab:hover, .tab.active {
-            background: #004d40;
-        }
-        .tab-content {
-            display: none;
-            padding: 20px;
-            background: white;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .review-section {
-            margin-top: 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .review-form input, .review-form textarea {
-            width: 100%;
+            justify-content: space-between;
+            background: #008080;
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 10px;
         }
-        .review-form button {
-            background: #00796b;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .review-list {
-            margin-top: 20px;
-        }
-        .review-item {
-            background: #f1f1f1;
+        .tab {
+            flex: 1;
+            text-align: center;
             padding: 10px;
-            margin-top: 10px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+        }
+        .tab.active {
+            background: white;
+            color: #008080;
             border-radius: 5px;
         }
         .tab-content {
             display: none;
             padding: 20px;
-            background: white;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
         .tab-content.active {
             display: block;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            .tab {
+                flex: none;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Viswajyothi College of Engineering and Technology</h1>
-    </header>
-    
     <div class="container">
-        <div class="highlight-card">
-            <h2>College Highlights</h2>
-            <p><b>Accreditation:</b> NAAC A+</p>
-            <p><b>Year of Establishment:</b> 2001</p>
-            <p><b>Affiliated To:</b> APJ Abdul Kalam Technological University</p>
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('overview')">Overview</div>
+            <div class="tab" onclick="showTab('courses')">Courses</div>
+            <div class="tab" onclick="showTab('gallery')">Gallery</div>
+            <div class="tab" onclick="showTab('reviews')">Reviews</div>
         </div>
-    </div>
-    
-    <div class="tab-container">
-        <div class="tab active" data-tab="overview">Overview</div>
-        <div class="tab" data-tab="courses">Courses</div>
-        <div class="tab" data-tab="facilities">Facilities</div>
-        <div class="tab" data-tab="placements">Placements</div>
-        <div class="tab" data-tab="fees">Fee Structure</div>
-        <div class="tab" data-tab="review">Review</div>
-    </div>
-    
-    <div id="overview" class="tab-content active">
-        <h2>Overview</h2>
-        <p>Viswajyothi College of Engineering and Technology (VJCET) is a premier engineering institution in Kerala, offering high-quality education and a vibrant campus experience.</p>
-        <div class="image-gallery">
-            <img src="1490698832phpOQXu5i.jpeg" alt="Campus">
-            <img src="img1.jpg" alt="Campus">
+        
+        <div id="overview" class="tab-content active">
+            <h2>College Overview</h2>
+            <p>Details about the college, its facilities, and more.</p>
         </div>
-    </div>
-    
-    <div id="courses" class="tab-content">
-        <h2>Courses Offered</h2>
-        <ul>
-            <li>B.Tech in Computer Science and Engineering</li>
-            <li>B.Tech in Mechanical Engineering</li>
-            <li>B.Tech in Civil Engineering</li>
-            <li>B.Tech in Electronics and Communication Engineering</li>
-            <li>M.Tech in Computer Science</li>
-            <li>M.Tech in VLSI Design</li>
-        </ul>
-    </div>
-    
-    <div id="facilities" class="tab-content">
-        <h2>Facilities</h2>
-        <ul>
-            <li>Well-equipped Laboratories</li>
-            <li>Central Library with Digital Access</li>
-            <li>Hostels for Boys and Girls</li>
-            <li>Sports Complex and Gym</li>
-            <li>WiFi-enabled Campus</li>
-        </ul>
-        <div class="facility-gallery">
-            <img src="pEazqkHs42dAmk8jV3y648bL0qYFGQlwr6MlWYJb.jpg" alt="Lab" onclick="openModal(this.src)">
-            <img src="ftXIxYC9XOtfGibYHcgVlBbxlmeCoI1I9WRkoB2c.jpg" alt="Library" onclick="openModal(this.src)">
-            <img src="4kfbW2DaIM2c0RysVWZ8ELvaSTeZJ4GS22GqFBzQ.jpg" alt="Hostel" onclick="openModal(this.src)">
-            <img src="sports.jpg" alt="Sports Complex" onclick="openModal(this.src)">
+        <div id="courses" class="tab-content">
+            <h2>Courses Offered</h2>
+            <p>List of available courses.</p>
         </div>
-    </div>
-    
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <img id="modalImage">
-    </div>
-    </div>
-    
-    <div id="placements" class="tab-content">
-        <h2>Placement Statistics</h2>
-        <canvas id="placementChart"></canvas>
-    </div>
-    
-    <div id="fees" class="tab-content">
-        <h2>Fee Structure</h2>
-        <table border="1" width="100%">
-            <tr>
-                <th>Course</th>
-                <th>Annual Fees (INR)</th>
-            </tr>
-            <tr>
-                <td>B.Tech(cs)</td>
-                <td>₹100000</td>
-            </tr>
-            <tr>
-                <td>B.Tech(AD)</td>
-                <td>₹100000</td>
-            </tr>
-            <tr>
-                <td>B.Tech(Mech)</td>
-                <td>₹75000</td>
-            </tr>
-            <tr>
-                <td>B.Tech(IT)</td>
-                <td>₹100000</td>
-            </tr>
-        </table>
-    </div>
-    <div id="review" class="tab-content">
-        <h2>Reviews</h2>
-        <div class="review-section">
-            <h3>Submit a Review</h3>
-            <form class="review-form">
-                <input type="text" id="reviewer-name" placeholder="Your Name" required>
-                <textarea id="review-text" placeholder="Your Review" rows="4" required></textarea>
-                <button type="button" onclick="submitReview()">Submit</button>
-            </form>
-            <div class="review-list" id="review-list"></div>
+        <div id="gallery" class="tab-content">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <img src="college1.jpg" alt="College Image">
+                <img src="college2.jpg" alt="Campus">
+            </div>
+        </div>
+        <div id="reviews" class="tab-content">
+            <h2>Student Reviews</h2>
+            <p>User reviews about the college.</p>
         </div>
     </div>
     
     <script>
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
-                this.classList.add('active');
-                document.getElementById(this.getAttribute('data-tab')).classList.add('active');
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
             });
-        });
-        function openModal(src) {
-            document.getElementById('modalImage').src = src;
-            document.getElementById('imageModal').style.display = 'flex';
-        }
-        function closeModal() {
-            document.getElementById('imageModal').style.display = 'none';
-        }
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
-                this.classList.add('active');
-                document.getElementById(this.getAttribute('data-tab')).classList.add('active');
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
             });
-        });
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
-                this.classList.add('active');
-                document.getElementById(this.getAttribute('data-tab')).classList.add('active');
-            });
-        });
-        
-       
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
-                this.classList.add('active');
-                const targetTab = document.getElementById(this.getAttribute('data-tab'));
-                if (targetTab) targetTab.classList.add('active');
-            });
-        });
-        
-        const ctx = document.getElementById('placementChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['TCS', 'Infosys', 'Wipro', 'Cognizant', 'Amazon'],
-                datasets: [{
-                    label: 'Number of Students Placed',
-                    data: [120, 90, 80, 70, 50],
-                    backgroundColor: ['#00796b', '#004d40', '#009688', '#26a69a', '#80cbc4']
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-        function submitReview() {
-            const name = document.getElementById('reviewer-name').value;
-            const review = document.getElementById('review-text').value;
-            if (name && review) {
-                const reviewList = document.getElementById('review-list');
-                const reviewItem = document.createElement('div');
-                reviewItem.classList.add('review-item');
-                reviewItem.innerHTML = `<strong>${name}:</strong> <p>${review}</p>`;
-                reviewList.appendChild(reviewItem);
-                document.getElementById('reviewer-name').value = '';
-                document.getElementById('review-text').value = '';
-            }
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
         }
     </script>
 </body>
