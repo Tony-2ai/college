@@ -18,7 +18,7 @@
             background-color: #00796b;
             color: white;
             padding: 20px;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -29,7 +29,6 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            flex-wrap: wrap;
         }
         .search-filter-container input, .search-filter-container select {
             padding: 12px;
@@ -38,7 +37,10 @@
             font-size: 16px;
             outline: none;
             transition: all 0.3s ease-in-out;
-            width: 250px;
+        }
+        .search-filter-container input:focus, .search-filter-container select:focus {
+            border-color: #004d40;
+            box-shadow: 0 0 8px rgba(0, 121, 107, 0.5);
         }
         .college-container {
             display: flex;
@@ -51,7 +53,7 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            width: 280px;
+            width: 260px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             cursor: pointer;
@@ -61,11 +63,11 @@
             position: relative;
         }
         .college-card:hover {
-            transform: scale(1.05);
+            transform: scale(1.08);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
         .college-card img {
-            width: 54%;
+            width: 58%;
             height: 160px;
             object-fit: cover;
             display: block;
@@ -73,29 +75,10 @@
         }
         .college-card h2 {
             margin: 15px;
-            font-size: 18px;
+            font-size: 20px;
             color: #00796b;
             text-align: center;
             font-weight: bold;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .search-filter-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .search-filter-container input, .search-filter-container select {
-                width: 90%;
-                max-width: 400px;
-            }
-            .college-card {
-                width: 90%;
-                max-width: 320px;
-            }
-            header {
-                font-size: 20px;
-            }
         }
     </style>
 </head>
@@ -121,6 +104,7 @@
                 <img src="college2.jpg" alt="College 2">
                 <h2>College Name 2</h2>
             </div>
+            <!-- Add more college cards here -->
         </div>
     </main>
     <script>
